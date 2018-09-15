@@ -1,0 +1,39 @@
+name: entry-point
+version: 0.0.1.0
+synopsis: TODO
+description: TODO
+maintainer: Peter Trško <peter.trsko@gmail.com>
+license: BSD3
+github: trskop/entry-point
+category: System
+
+#extra-source-files:
+#  - ChangeLog.md
+#  - README.md
+
+ghc-options:
+  - -Wall
+
+when:
+  - condition: impl(GHC >8)
+    then:
+      ghc-options:
+        - -Wimplicit-prelude
+        - -Wmissing-import-lists
+    else:
+      # At some point these option will become obsolete.
+      ghc-options:
+        - -fwarn-implicit-prelude
+        - -fwarn-missing-import-lists
+
+dependencies:
+  - base >=4.7 && <5
+
+  - directory
+  - transformers
+  - unix
+
+  - lumberjack-core
+
+library:
+  source-dirs: src

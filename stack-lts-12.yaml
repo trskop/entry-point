@@ -1,0 +1,21 @@
+# For advanced use and comprehensive documentation of the format, please see:
+# https://docs.haskellstack.org/en/stable/yaml_configuration/
+
+resolver: lts-12.9
+
+packages:
+  - .
+  - location:
+      git: https://github.com/trskop/lumberjack.git
+      commit: 0afa135931137bc15bd86bc577c1deda21957101
+    extra-dep: true
+    subdirs:
+      - log-level
+      - logstr
+      - lumberjack-core
+
+extra-deps:
+  - HoleyMonoid-0.1.1
+  - number-length-0.2.1.0
+
+flags: {}
